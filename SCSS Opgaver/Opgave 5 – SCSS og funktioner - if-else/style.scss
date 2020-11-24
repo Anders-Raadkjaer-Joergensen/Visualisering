@@ -1,0 +1,45 @@
+$blue: hsl(202, 74%, 64%);
+$total: 16;
+
+@mixin box($width, $bgcolor)
+{
+    width: $width;
+    background-color: $bgcolor;
+}
+
+@mixin imagegrid($column, $margin)
+{
+    &:nth-child(n){
+        margin-right: $margin;
+        margin-bottom: $margin;
+    }
+    &:nth-child(#{$column}n){
+        margin-right: 0px;
+    }
+}
+
+@function calculateWidth($columns, $margin){
+    @return (100% - (($columns - 1)* $margin))/$columns;
+}
+
+@function fancyColor($darkpercentage){
+
+    @return darken($blue, $darkpercentage);
+}
+
+@for $i from 1 through $total
+{
+    .kasse-#{$i}
+    {
+        float: left;
+        $tempwidth: calculateWidth(3, 3%);
+        height: 15rem;
+        @include box($tempwidth, fancyColor($i*5));
+        @include imagegrid(3, 3%);
+
+        @media only screen and (min-width: 1000px){
+            @include box(calculateWidth(5, 2%), fancyColor($i*5));
+            @include imagegrid(5, 2%);
+        }
+    }    
+}

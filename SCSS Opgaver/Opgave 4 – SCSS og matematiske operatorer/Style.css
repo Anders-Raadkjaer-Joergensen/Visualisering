@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Shadows+Into+Light&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #e5d8bd;
+  font-family: "Shadows Into Light", sans-serif;
+  padding: 1rem;
+}
+
+body h1 {
+  font-family: "Great Vibes", sans-serif;
+  color: #2c426d;
+  padding-bottom: 2rem;
+}
+
+.imagegrid :nth-child(n) {
+  margin: 0px 1% 1% 0px;
+  width: 32.66667%;
+}
+
+.imagegrid :nth-child(3n) {
+  margin-right: 0px;
+}
+
+.imagegrid .item {
+  float: left;
+}
+
+.imagegrid .item img {
+  border-radius: 15px;
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .imagegrid :nth-child(n) {
+    margin: 0px 2% 2% 0px;
+    width: 12.57143%;
+  }
+  .imagegrid :nth-child(7n) {
+    margin-right: 0px;
+  }
+}
+/*# sourceMappingURL=Style.css.map */

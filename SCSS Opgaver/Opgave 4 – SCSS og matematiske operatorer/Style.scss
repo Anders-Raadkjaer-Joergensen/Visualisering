@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Shadows+Into+Light&display=swap');
+
+@mixin imagegrid($columns, $margin){
+    :nth-child(n){
+        margin: 0px $margin $margin 0px;
+        width: (100% - (($columns - 1)* $margin))/$columns;
+    }
+    :nth-child(#{$columns}n){
+        margin-right: 0px;
+    }
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+$font-main: 'Shadows Into Light', sans-serif;
+$font-headings: 'Great Vibes', sans-serif;
+$bgcolor: hsl(40, 43%, 82%);
+$color-heading: hsl(220, 43%, 30%);
+
+body{
+    background-color: $bgcolor;
+    font-family: $font-main;
+    padding: 1rem;
+    
+        h1{
+        font-family: $font-headings;
+        color: $color-heading;
+        padding-bottom: 2rem;
+    }
+}
+
+
+
+.imagegrid{
+    @include imagegrid(3, 1%);
+
+    .item{
+        float: left;
+        
+        img{
+            border-radius: 15px;
+            width: 100%;
+        }
+    }
+
+    
+}
+
+@media screen and (min-width: 600px){
+
+        .imagegrid{
+
+            @include imagegrid(7, 2%);
+    }
+}
