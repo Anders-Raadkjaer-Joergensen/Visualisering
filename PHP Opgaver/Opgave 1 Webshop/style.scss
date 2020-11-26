@@ -1,0 +1,9 @@
+$color: #adff2f;
+
+
+.light{
+    background-color: $color;
+}
+.dark{
+    background-color: darken($color, 15%);
+}

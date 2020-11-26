@@ -3,6 +3,21 @@ $string = "the quick brown fox jumped over the lay dog";
 $email = "halu@aspit.dk";
 $palindrom = "regninger";
 
+function password_generate($length) 
+{
+    $data = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz";
+    return substr(str_shuffle($data), 0, $length);
+}
+
+function PalindromCheck($string){   
+    if (strrev($string) == $string){   
+        return 1;   
+    } 
+    else{ 
+        return 0; 
+    } 
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -28,29 +43,28 @@ $palindrom = "regninger";
             }
         ?>
     </p>
+    
+    <p><?php 
+            //if(strpos($string, $word !== false)){}
+            if(strpos($string, "respekterthomas")){
+                echo "ok";
+            }
+            else{
+                echo "not ok";
+            }
+        ?>
+    </p>
+
     <p><?php echo substr($email, 0, strpos($email, "@")) ?></p>
 
     <p>
         <?php
-            function password_generate($length) 
-            {
-                $data = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz";
-                return substr(str_shuffle($data), 0, $length);
-            }
-            echo password_generate(10)."\n";
+            echo password_generate(10);
         ?>
     </p>
 
     <p>
-        <?php 
-            function PalindromCheck($string){   
-                if (strrev($string) == $string){   
-                    return 1;   
-                } 
-                else{ 
-                    return 0; 
-                } 
-            }
+        <?php
             if(PalindromCheck($palindrom)){   
                 echo "Palindrome";   
             }  
